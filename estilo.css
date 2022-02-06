@@ -18,7 +18,7 @@ header {
     color: #75B79E;
 }
 
-main {
+.deck {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -33,6 +33,9 @@ main {
     margin-left: 34px;
     margin-top: 34px;
     position: relative;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
 }
 
 .face {
@@ -45,9 +48,6 @@ main {
     align-items: center;
     justify-content: center;
     position: absolute;
-    backface-visibility: hidden;
-    transition: all .5s;
-    transform-style: preserve-3d;
 }
 
 .front-face {
@@ -62,12 +62,8 @@ main {
     width: 100px;
 }
 
-.card:hover .front-face {
-    transform: rotateY(0deg);
-}
-
-.card:hover .back-face {
-    transform: rotateY(-180deg);
+.card.flip {
+    transform: rotateY(180deg);
 }
 
 .hidden {
