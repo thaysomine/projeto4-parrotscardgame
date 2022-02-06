@@ -33,9 +33,10 @@ header {
     margin-left: 34px;
     margin-top: 34px;
     position: relative;
-    backface-visibility: hidden;
-    transition: all .5s;
-    transform-style: preserve-3d;
+}
+
+.card img {
+    width: 100px;
 }
 
 .face {
@@ -48,21 +49,12 @@ header {
     align-items: center;
     justify-content: center;
     position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
 }
 
-.front-face {
-    transform: rotateY(180deg);
-}
-
-.back-face img {
-    width: 100px;
-}
-
-.front-face img {
-    width: 100px;
-}
-
-.card.flip {
+.flip {
     transform: rotateY(180deg);
 }
 
