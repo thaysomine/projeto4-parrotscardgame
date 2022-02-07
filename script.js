@@ -1,5 +1,5 @@
 let nOfCards = null;  // num de cartas a ser escolhido pelo usuario
-let cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll('.card');
 let array = [];
 const deck = document.querySelector(".deck");
 let count = 0;
@@ -10,13 +10,12 @@ let lockBoard = false;
 // função para pedir num de cartas
 function cardNum() {
     while (nOfCards % 2 !== 0 || nOfCards < 4 || nOfCards > 14) {
-    nOfCards = prompt('Com quantas cartas quer jogar?');
+    nOfCards = prompt('Com quantas cartas quer jogar? (pares de 4 a 14)');
     } 
     showCards();
     return(nOfCards);
 }
 cardNum();
-
 // função para mostrar numero de cartas pedido
 function showCards() {
     for (let i=0 ; i<nOfCards ; i++) {
@@ -26,12 +25,10 @@ function showCards() {
     }
 array.sort(comparador);  
 }
-
 // funcao p embaralhar as cartas
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-
 // função p mandar a array embaralhada antes do conteudo carregar
 function startGame() {
     for (let i= 0; i < array.length; i++){
@@ -41,16 +38,13 @@ function startGame() {
     }
 }
 window.onload = startGame();
-
 //função para virar as cartas
 function flipCard(element) {
     if(lockBoard) return false;
     count = count + 1;
     console.log(count);
-
     element.querySelector(".front-face").classList.remove("flip");
-    element.querySelector(".back-face").classList.add("flip");   
-        
+    element.querySelector(".back-face").classList.add("flip");           
     if (!document.querySelector(".firstCard")){
         element.classList.add("firstCard");
         firstCard = element;
@@ -86,7 +80,7 @@ function checkForMach(){
     }
     lockBoard = false;
 }
-
+// função para informar numero de jogadas
 function endGame() {
     if (document.querySelectorAll('.match').length == nOfCards) {
         alert("Você ganhou em " + count + " jogadas");
