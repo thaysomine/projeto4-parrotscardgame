@@ -24,7 +24,7 @@ header {
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .card {
@@ -60,4 +60,20 @@ header {
 
 .hidden {
     display: none;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .deck {
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .card {
+        margin-left: 0px;
+    }
 }
