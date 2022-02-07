@@ -45,6 +45,8 @@ window.onload = startGame();
 //função para virar as cartas
 function flipCard(element) {
     if(lockBoard) return false;
+    count = count + 1;
+    console.log(count);
 
     element.querySelector(".front-face").classList.remove("flip");
     element.querySelector(".back-face").classList.add("flip");   
@@ -80,6 +82,14 @@ function checkForMach(){
         secondCard.classList.remove('secondCard');
         secondCard.setAttribute("onclick","");
         secondCard.classList.add("match");
+        endGame();
     }
     lockBoard = false;
 }
+
+function endGame() {
+    if (document.querySelectorAll('.match').length == nOfCards) {
+        alert("Você ganhou em " + count + " jogadas");
+    }
+}
+
